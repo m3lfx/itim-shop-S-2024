@@ -4,7 +4,7 @@ include('../includes/header.php');
 include('../includes/config.php');
 
 // var_dump($_SESSION);
-// unset($_SESSION);
+
 
 ?>
 
@@ -34,7 +34,10 @@ include('../includes/config.php');
 
                 <label for="cost">Cost Price</label>
 
-                <input type="text" class="form-control" id="cost" placeholder="Enter item cost price" name="cost_price">
+                <input type="text" class="form-control" id="cost" placeholder="Enter item cost price" name="cost_price" value="<?php
+                                                                                                                                if (isset($_SESSION['cost']))
+                                                                                                                                    echo $_SESSION['cost'];
+                                                                                                                                ?>">
                 <small><?php
                         if (isset($_SESSION['costError'])) {
                             echo $_SESSION['costError'];
@@ -49,6 +52,12 @@ include('../includes/config.php');
 
                 <input type="number" class="form-control" id="qty" placeholder="1" name="quantity" />
                 <input class="form-control" type="file" name="img_path" /><br />
+                <small><?php 
+                if (isset($_SESSION['imageError'])) {
+                    echo $_SESSION['imageError'];
+                    unset($_SESSION['imageError']);
+                }
+                ?></small>
 
             </div>
             <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
