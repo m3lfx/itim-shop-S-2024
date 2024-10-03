@@ -2,7 +2,7 @@
 session_start();
 include('./includes/header.php');
 include('./includes/config.php');
-$keyword = trim($_GET['search']);
+$keyword = strtolower(trim($_GET['search']));
 echo $keyword;
 $sql = "SELECT item_id, description, img_path, sell_price 
         FROM item 
