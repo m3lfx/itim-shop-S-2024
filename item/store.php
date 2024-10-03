@@ -33,4 +33,14 @@ if (isset($_POST['submit'])) {
             header("Location: create.php");
         }
     }
+
+    $sql = "INSERT INTO item(description, cost_price, sell_price, img_path) VALUES('{$desc}', '{$cost}', '{$sell}','{$target}')";
+
+    $result = mysqli_query($conn, $sql);
+
+    $q_stock = "INSERT INTO stock(item_id, quantity) VALUES(LAST_INSERT_ID(), {$qty})";
+    $result2 = mysqli_query($conn, $q_stock);
+    if($result && $result2) {
+        header("Location: index.php");
+    }
 }
