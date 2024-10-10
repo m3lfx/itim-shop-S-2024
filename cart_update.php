@@ -47,12 +47,12 @@ if (isset($_POST["product_qty"]) || isset($_POST["remove_code"])) {
         }
     }
 
-    // if (is_array($_POST["remove_code"]) ) {
-    //     foreach ($_POST["remove_code"] as $key) {
-    //         // var_dump($key);
-    //         unset($_SESSION["cart_products"][$key]);
-    //     }
-    // }
+    if (is_array($_POST["remove_code"]) ) {
+        foreach ($_POST["remove_code"] as $key) {
+            // var_dump($key);
+            unset($_SESSION["cart_products"][$key]);
+        }
+    }
     echo "<pre>";
     print_r($_SESSION['cart_products']);
     echo "</pre>";
