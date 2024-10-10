@@ -3,7 +3,7 @@ session_start();
 
 include('./includes/header.php');
 include('./includes/config.php');
-// print_r($_POST);
+// print_r($_);
 if (isset($_POST["type"]) && $_POST["type"] == 'add' && $_POST["item_qty"] > 0) {
     foreach ($_POST as $key => $value) { //add all post vars to new_product array
         $new_product[$key] = $value;
@@ -31,5 +31,31 @@ if (isset($_POST["type"]) && $_POST["type"] == 'add' && $_POST["item_qty"] > 0) 
     print_r($_SESSION);
     echo "print </pre>";
     
+}
+
+if (isset($_POST["product_qty"]) || isset($_POST["remove_code"])) {
+    var_dump($_POST["remove_code"]);
+    //update item quantity in product session
+
+    if (isset($_POST["product_qty"]) && is_array($_POST["product_qty"])) {
+
+        foreach ($_POST["product_qty"] as $key => $value) {
+            if (is_numeric($value)) {
+                // var_dump( $key, $value);
+                $_SESSION["cart_products"][$key]["item_qty"] = $value;
+            }
+        }
+    }
+
+    // if (is_array($_POST["remove_code"]) ) {
+    //     foreach ($_POST["remove_code"] as $key) {
+    //         // var_dump($key);
+    //         unset($_SESSION["cart_products"][$key]);
+    //     }
+    // }
+    echo "<pre>";
+    print_r($_SESSION['cart_products']);
+    echo "</pre>";
+
 }
 header('Location: index.php');
