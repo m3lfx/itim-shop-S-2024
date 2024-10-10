@@ -25,10 +25,11 @@ if (isset($_POST["type"]) && $_POST["type"] == 'add' && $_POST["item_qty"] > 0) 
         if (isset($_SESSION["cart_products"][$new_product['item_id']])) {
             unset($_SESSION["cart_products"][$new_product['item_id']]);
         }
-        
     }
     $_SESSION["cart_products"][$new_product['item_id']] = $new_product;
-echo "print <pre>";
+    echo "print <pre>";
     print_r($_SESSION);
     echo "print </pre>";
+    
 }
+header('Location: index.php');
