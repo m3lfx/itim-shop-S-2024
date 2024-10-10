@@ -33,7 +33,7 @@ if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"]) > 0) {
     echo "</form>";
     echo '</div>';
 }
-$sql = "SELECT item_id, description, img_path, sell_price FROM item ORDER BY item_id DESC";
+$sql = "SELECT i.item_id AS itemId, description, img_path, sell_price FROM item i INNER JOIN stock s USING (item_id)  ORDER BY i.item_id ASC";
 
 $results = mysqli_query($conn, $sql);
 
@@ -56,7 +56,7 @@ if ($results) {
         <input type="number" size="2" maxlength="2" name="item_qty" value="1" />
     </label>
     </fieldset>
-    <input type="hidden" name="item_id" value="{$row['item_id']}" />
+    <input type="hidden" name="item_id" value="{$row['itemId']}" />
     <input type="hidden" name="type" value="add" />
     
     <div align="center"><button type="submit" class="add_to_cart">Add</button></div>
