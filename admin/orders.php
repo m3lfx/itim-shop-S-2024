@@ -2,7 +2,7 @@
 session_start();
 include('../includes/header.php');
 include('../includes/config.php');
-//CREATE VIEW  salesPerOrder as SELECT o.orderinfo_id, SUM(i.sell_price * ol.quantity) FROM orderinfo o INNER JOIN orderline ol using (orderinfo_id) INNER JOIN item i USING (item_id)
+//CREATE VIEW  salesPerOrder as SELECT o.orderinfo_id, SUM(i.sell_price * ol.quantity), o.status FROM orderinfo o INNER JOIN orderline ol using (orderinfo_id) INNER JOIN item i USING (item_id)
 // GROUP BY o.orderinfo_id;
 // $sql = "SELECT o.orderinfo_id as orderId, SUM(i.sell_price * ol.quantity) as total FROM orderinfo o INNER JOIN orderline ol using (orderinfo_id) INNER JOIN item i USING (item_id)
 // GROUP BY o.orderinfo_id";
@@ -16,6 +16,7 @@ $itemCount = mysqli_num_rows($result);
 
 ?>
 <h2>number of items <?= $itemCount ?> </h2>
+<?php include("../includes/alert.php"); ?>
 <table class="table table-striped table-bordered">
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
@@ -23,6 +24,7 @@ $itemCount = mysqli_num_rows($result);
 
         echo "<td>{$row['orderId']}</td>";
         echo "<td>{$row['total']}</td>";
+        echo "<td>{$row['status']}</td>";
 
 
         echo "<td><a href='orderDetails.php?id={$row['orderId']}'><i class='fa-regular fa-eye' style='color: blue'></i></a></td>";
