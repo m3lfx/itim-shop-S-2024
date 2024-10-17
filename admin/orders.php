@@ -24,11 +24,25 @@ $itemCount = mysqli_num_rows($result);
 
         echo "<td>{$row['orderId']}</td>";
         echo "<td>{$row['total']}</td>";
-        echo "<td>{$row['status']}</td>";
+        if($row['status'] === 'Delivered') {
+            echo "<td style='color: green'>{$row['status']}</td>";
+        }
+        else {
+            echo "<td style='color: red'>{$row['status']}</td>";
 
-
-        echo "<td><a href='orderDetails.php?id={$row['orderId']}'><i class='fa-regular fa-eye' style='color: blue'></i></a></td>";
+        }
+        if($row['status'] === 'Delivered') {
+            echo "<td><i class='fa-regular fa-eye' style='color: gray'></i></td>";
         echo "</tr>";
+        }
+
+        else {
+            echo "<td><a href='orderDetails.php?id={$row['orderId']}'><i class='fa-regular fa-eye' style='color: blue'></i></a></td>";
+            echo "</tr>";
+        }
+
+
+        
     }
     ?>
 </table>
