@@ -5,11 +5,18 @@ include('includes/config.php');
 
 try {
     mysqli_query($conn, 'START TRANSACTION');
+    
+    $sql = "SELECT customer_id FROM customer WHERE user_id = {$_SESSION['user_id']} LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $customer_id = $row['customer_id'];
+
+    
     $q = 'INSERT INTO orderinfo(customer_id, date_placed, date_shipped,shipping) VALUES (?, NOW(), NOW(), ?)';
 
     $shipping = 10.00;
     // $shipvia = 1;
-    $customer_id = 1;
+    
     $stmt1 = mysqli_prepare($conn, $q);
     mysqli_stmt_bind_param($stmt1, 'id', $customer_id, $shipping);
     mysqli_stmt_execute($stmt1);

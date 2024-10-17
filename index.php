@@ -1,8 +1,10 @@
 <?php
 session_start();
+
 include('./includes/header.php');
 include('./includes/config.php');
 // unset($_SESSION['cart_products']);
+print_r($_SESSION);
 if(isset($_SESSION["cart_products"]) && count($_SESSION["cart_products"]) > 0) {
     echo '<div class="cart-view-table-front" id="view-cart">';
     echo '<h3>Your Shopping Cart</h3>';
