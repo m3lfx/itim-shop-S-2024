@@ -6,6 +6,7 @@ include("../includes/config.php");
 if (isset($_POST['submit'])) {
     $lname = trim($_POST['lname']);
     $fname = trim($_POST['fname']);
+     echo strip_tags($_POST['fname']);
     $title = trim($_POST['title']);
     $address = trim($_POST['address']);
     $town = trim($_POST['town']);

@@ -1,20 +1,20 @@
 <?php
-// date_default_timezone_set('Asia/Manila');
-print time();
+date_default_timezone_set('Asia/Manila');
+// print time();
 $date_array = getdate(); // no argument passed so today's date will be used
-foreach ($date_array as $key => $val) {
-    print "$key = $val<br>";
-}
+// foreach ($date_array as $key => $val) {
+//     print "$key = $val<br>";
+// }
 
-print "Today's date: {$date_array['mday']}/{$date_array['mon']}/
-// {$date_array['year']}<p>";
+// print "Today's date: {$date_array['mday']}/{$date_array['mon']}/
+// // {$date_array['year']}<p>";
 
 $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print $ts;
- print date("m/d/Y G.i:s<br>", $ts);
+//  print date("m/d/Y G.i:s<br>", time());
 
-//  print date("j \of F Y, \a\\t g.i a", $ts );
-// $number = 1900;
+//  print date("Y-m-d");
+$number = 1900;
 //  printf("Decimal: %d<br>", $number );
 //  printf("Binary: %b<br>", $number );
 // printf("Double: %f<br>", $number );
@@ -23,13 +23,13 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // printf("Hex (lower): %x<br>", $number );
 //  printf("Hex (upper): %X<br>", $number );
 
-//  $red = 204;
-// $green = 204;
+ $red = 204;
+$green = 204;
 // $blue = 204;
 // printf( "#%X%X%X", $red, $green, $blue );
-// printf( "%4d", 36 );
+// printf( "%04d", 36 );
 
-// $test = "scallywag";
+$test = "scallywag";
 // print $test[0]; // prints "s"
 // print $test[2]; // prints "a"
 // $membership = 'test';
@@ -39,21 +39,21 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print "Your membership number must have 4 digits<P>";
 
 // $membership = "pAB7";
-// if ( strstr( $membership, "AB6" ) )
+// if ( strstr( $membership, "ab7" ) )
 // print "Thank you. Don't forget that your membership expires soon!";
 // else
 // print "Thank you!";
 
 // $membership = "mz00xyz";
-// if ( strpos($membership, "mz") === 0 )
+// if ( strpos($membership, "mz0") === 0 )
 // print "hello mz";
 
-// $test = "scallywaggretgre";
-// print substr($test, 6); // prints "wag"
+$test = "scallywag";
+// print substr($test, -5,3); // prints "wag"
 // print substr($test,6,2);
 
 // $test = "matt@corrosive.co.uk";
-// if ( $test = substr( $test, -3 ) === ".uk" )
+// if ( $test = substr( $test, -3 ) === ".co.uk" )
 // print "Don't forget our special offers for British customers";
 // else
 // print "Welcome to our shop!";
@@ -71,10 +71,12 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 //  print( $test);
 
 //  $text = "\t\t\tlots of room to breath ";
+//  print "<pre>{$text}</pre>";
 // $text = trim( $text );
 // print $text;
 
 // $text = "\t\t\tlots of room to breath ";
+// print "<pre>{$text}</pre>";
 // $text = chop( $text );
 // print $text;
 
@@ -83,12 +85,14 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print $text;
 
 // $membership = "mz99xyz";
+// print $membership;
 // $membership = substr_replace( $membership, "00", 2, 1 );
 // print "New membership number: $membership<p>";
 
-// $string = "Site g@g0 g@g0 duck. ";
-// $string .= "The g@g0 Guide to All Things Good in Europe";
+$string = "Site g@g0 g@g0 duck. buck clock socks packs u ";
+$string .= "The g@g0 Guide to All Things Good in Europe";
 // print str_replace("g@g0","****",$string);
+print preg_replace("/\w+ck/", "love", $string);
 
 // $membership = "mz00xyz";
 // $membership = strtoupper( $membership );
@@ -104,43 +108,43 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // $full_name = ucwords( $full_name );
 // print $full_name;
 
-// $full_name = "VIolEt eLIZaBeTH bOTt";
-// $full_name = ucwords( strtolower($full_name) );
+// $full_name = "      VIolEt eLIZaBeTH bOTt    ";
+// $full_name = ucwords( strtolower(trim($full_name)) );
 // print $full_name;
 
-// $start_date = "2000-!01-12";
+// $start_date = "2000-!01-12\n";
 // $date_array = explode("-!", $start_date);
-// print $date_array[0] ;
-// print $date_array[1] ;
-// print $date_array[2];;
+// print $date_array[0]. "<br>" ;
+// print $date_array[1]. "<br>" ;
+// print $date_array[2]. "<br>";
 // print $start_date;
 
 // print "<pre>\n";
-// print preg_match("/aa/", "aardvark advocacy", $array) . "\n";
+// print preg_match("/aaR/", "aardvark aadvocacy", $array) . "\n";
 // print_r( $array );
 // print "</pre>\n";
 
-// if ( preg_match("/a*/","aaaaazbcda", $array) ) {
+// if ( preg_match("/b*/","zbcda", $array) ) {
 //     print "<pre>\n";
 //     print_r( $array );
 //     print "</pre>\n";
 //     }
 
-// $text = "pot";
-// if (preg_match( "/p.?t/", $text, $array ) ) {
+// $text = "pt post pat patent";
+// if (preg_match( "/p.+t/", $text, $array ) ) {
 // print "<pre>\n";
 // print_r( $array );
 // print "</pre>\n";
 // }
 
-// $text = "poz post pat patenz";
-// if (preg_match("/^p.+z$/", $text, $array)) {
+// $text = "pot post pat patents";
+// if (preg_match("/^p.+s$/", $text, $array)) {
 //     print "<pre>\n";
 //     print_r($array);
 //     print "</pre>\n";
 // }
 
-// if (preg_match("/[A-Za-z_347]+/", "AB dkfd773sxFF", $array)) {
+// if (preg_match("/^[a-z0-9_]+/", "_AB dkfd773sxFF", $array)) {
 //     print "<pre>\n";
 //     print_r($array);
 //     print "</pre>\n";
@@ -151,23 +155,31 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 //     print_r( $array );
 //     print "</pre>\n";
 //     }
-
-// if ( preg_match("/^p[^a-z347]+/","pB dkfd773sxFF", $array) ) {
+// [A-Za-z0-9_] === \w
+// if ( preg_match("/^p[^a-z34]+/","pB dkfd773sxFF", $array) ) {
 //     print "<pre>\n";
 //     print_r( $array );
 //     print "</pre>\n";
 //     }
-
+$text = "pot post pat patent";
+// preg_match( "/p[a-zA-Z0-9_]+\st$/", $text, $array );
+// print "<pre>\n";
+//     print_r( $array );
+//     print "</pre>\n";
+// preg_match( "/p\w+t/", $text, $array );
+// print "<pre>\n";
+//     print_r( $array );
+//     print "</pre>\n";
 // $text = "pot post pat patent";
-// if (preg_match("/\bp\w+t\b/", $text, $array)) {
+// if (preg_match_all("/\bp\w+t\b/", $text, $array)) {
 //     print "<pre>\n";
 //     print_r($array);
 //     print "</pre>\n";
    
 // }
 
-// $test = "Whatever you do, don't panic!";
-// if ( preg_match( "/(don't)\s+(panic)/", $test, $array ) ) {
+// $test = "Whatever you do, (don't) panic!";
+// if ( preg_match( "/\(don't\)\s+(panic)/", $test, $array ) ) {
 // print "<pre>\n";
 // print_r( $array );
 // print "</pre>\n";
@@ -181,13 +193,13 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // }
 
 // $test = "TUPT-23-0909";
-// if ( preg_match( "/[A-Z]+-\d{2}-\d{4}/", $test, $array ) ) {
+// if ( preg_match( "/[A-Z]+-\d{2}-\d{4}$/", $test, $array ) ) {
 // print "<pre>\n";
 // print_r( $array );
 // print "</pre>\n";
 // }
 
-// $test = "www.example.co.uk";
+// $test = "www.example.co.ph";
 // if ( preg_match( "/www\.example(\.com|\.co\.uk)/", $test, $array ) ) {
 // print "it is a $array[1] domain<br/>";
 // }
@@ -199,7 +211,7 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print "</pre>\n";
 // }
 
-// $text = "I sell pots, plants, pistachios, pianos and parrots potatos";
+// $text = "I sell pots, plants, pistachios, pianos and parrots potatoes";
 // if ( preg_match_all( "/\bp\w+s\b/", $text, $array ) ) {
 // print "<pre>\n";
 // print_r( $array );
@@ -212,7 +224,7 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print_r( $array );
 // print "</pre>\n";
 
-// $test = "Our Secretary, Sarah Williams is pleased to welcome you.";
+// $test = "Our Secretary, Sarah Williams is pleased to welcome you. Sarah Williams";
 // print preg_replace("/Sarah Williams/", "Rev. P.W. Goodchild", $test);
 
 // $text = "name: matt\noccupation: coder\neyes: blue\n";
@@ -236,9 +248,8 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // print "</pre>\n";
 
 // $dates = "3/18/03<br />\n7/22/04";
-// $dates = preg_replace_callback( "/([0-9]+)\/([0-9]+)\/([0-9]+)/",
-// function ($match) {
-// print_r($match);
+// $dates = preg_replace_callback( "/([0-9]+)\/([0-9]+)\/([0-9]+)/", function ($match) {
+// // print_r($match);
 // $year = ($match[3] < 70 ) ? $match[3]+2000 : $match[3];
 
 // // echo $year ;
@@ -247,3 +258,5 @@ $ts = mktime( 2, 30, 0, 5, 1, 1999 );
 // // return null;
 // }, $dates);
 // print $dates;
+
+// /[\w+\.]+@(tup.edu.ph)$/
